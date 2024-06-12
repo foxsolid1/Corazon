@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.heart {
+    position: relative;
+    width: 20vw;
+    height: 20vw;
+    max-width: 150px;
+    max-height: 150px;
+    background-color: red;
+    transform: rotate(-45deg);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20vw;
+    height: 20vw;
+    max-width: 150px;
+    max-height: 150px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -50%;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 50%;
+}
+
+.heart.beat {
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(-45deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .heart {
+        width: 30vw;
+        height: 30vw;
+    }
+
+    .heart::before,
+    .heart::after {
+        width: 30vw;
+        height: 30vw;
+    }
+}
+
+@media (max-width: 400px) {
+    .heart {
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .heart::before,
+    .heart::after {
+        width: 40vw;
+        height: 40vw;
+    }
+}
